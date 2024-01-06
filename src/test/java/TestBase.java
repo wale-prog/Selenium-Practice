@@ -7,6 +7,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestBase {
     public static WebDriver driver;
     @BeforeClass
@@ -22,7 +24,7 @@ public class TestBase {
             WebDriverManager.firefoxdriver().setup();
         }
         driver.manage().window().maximize();
-        driver.navigate().to("https://the-internet.herokuapp.com/");
+        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
     }
     public static void sleep(int seconds) {
         try {
@@ -30,6 +32,9 @@ public class TestBase {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+    public void getUrl(String url) {
+        driver.get(url);
     }
     @BeforeMethod
     public void beforeMethod() {
