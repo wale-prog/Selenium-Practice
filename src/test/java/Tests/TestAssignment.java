@@ -1,3 +1,5 @@
+package Tests;
+
 import Base.TestBase;
 import Pages.LoginPage;
 import Pages.WelcomePage;
@@ -19,13 +21,11 @@ public class TestAssignment extends TestBase {
         // Navigate to the website url
         getUrl("https://the-internet.herokuapp.com/");
         welcomePage.clickForm();
-
         // Locate web elements (Username and Password)
         loginPage.enterUsername("tomsmith");
         loginPage.enterPassword("SuperSecretPassword");
         // Next we find the login element on the page
         loginPage.clickLoginBtn();
-
         // Asserting if the login was successful or not
         WebElement errorMessage = loginPage.getErrorMsg();
         System.out.println(errorMessage.getText());

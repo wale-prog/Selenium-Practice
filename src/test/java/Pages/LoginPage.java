@@ -10,14 +10,22 @@ public class LoginPage extends PageBase {
         super(driver);
     }
 
-    @FindBy(xpath = "(//input)[1]")
-    WebElement usernameField;
+//    @FindBy(xpath = "(//input)[1]")
+//    WebElement usernameField;
     @FindBy(xpath = "(//input)[2]")
     WebElement passwordField;
     @FindBy(xpath = "(//button)")
     WebElement loginBtn;
     @FindBy(id = "flash")
     WebElement errorMsg;
+    @FindBy(tagName = "input")
+    private WebElement usernameField;
+    @FindBy(xpath = "(//div[@role='button'])[3]")
+    WebElement nextBtn;
+    @FindBy(xpath = "(//div[@role='button'])[3]")
+    WebElement SignInBtn;
+    @FindBy(xpath = "//input[@name='password']")
+    WebElement passwordInput;
 
     public void enterUsername(String username) {
         enterText(usernameField, username);
@@ -30,5 +38,17 @@ public class LoginPage extends PageBase {
     }
     public WebElement getErrorMsg() {
         return errorMsg;
+    }
+    public void inputUsername(String username) {
+        enterText(usernameField, username);
+    }
+    public void clickNextBtn() {
+        click(nextBtn);
+    }
+    public void inputPassword(String password) {
+        enterText(passwordInput, password);
+    }
+    public void clickSigInBtn() {
+        click(SignInBtn);
     }
 }

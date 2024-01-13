@@ -16,11 +16,17 @@ public class WelcomePage extends PageBase {
     public WelcomePage(WebDriver driver) {
         super(driver);
     }
+    LoginPage loginPage = new LoginPage(driver);
 
     @FindBy(xpath = "//a[text()='Form Authentication']")
     WebElement form;
+    @FindBy(xpath = "//a[@href='/login']")
+    WebElement signInBtn;
 
     public void clickForm() {
         click(form);
+    }
+    public void clickSignInBtn() {
+        click(signInBtn);
     }
 }
