@@ -5,6 +5,9 @@ import Pages.LoginPage;
 import Pages.WelcomePage;
 import org.testng.annotations.Test;
 
+import java.util.Iterator;
+import java.util.Set;
+
 public class TwitterAutomation extends TestBase {
 
     WelcomePage welcomePage;

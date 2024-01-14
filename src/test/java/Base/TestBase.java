@@ -9,10 +9,30 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
+    public static Properties testData;
+    public static FileInputStream fis;
     public static WebDriver driver;
+
+    public TestBase() {
+        loadPropFile();
+    }
+
+    public void loadPropFile() {
+        testData = new Properties();
+        try {
+            fis = new FileInputStream("src/test/java/Utils/testData.properties");
+            testData.load(fis);
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     @BeforeClass
     public void setup() {
         System.out.println("Inside the before class annotation");

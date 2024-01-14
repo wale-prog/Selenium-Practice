@@ -29,4 +29,7 @@ public class WelcomePage extends PageBase {
     public void clickSignInBtn() {
         click(signInBtn);
     }
+    public WebElement getForm() {
+        return form;
+    }
 }
