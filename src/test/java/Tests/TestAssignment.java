@@ -8,6 +8,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import java.util.Iterator;
@@ -20,9 +21,11 @@ public class TestAssignment extends TestBase {
 
     String current;
 
+    @Parameters({"Student1", "Student2"})
     @Test(priority = 1, description = "Validate that User cannot login using wrong credentials")
-    public void validateUserCannotLoginUsingWrongCredentials() {
+    public void validateUserCannotLoginUsingWrongCredentials(String Student1, String Student2) {
 
+        System.out.println("The name of the students are: " + Student1 + " and " + Student2);
         welcomePage = new WelcomePage(driver);
         loginPage = new LoginPage(driver);
         // Navigate to the website url
@@ -41,9 +44,9 @@ public class TestAssignment extends TestBase {
 //            }
 //        }
         Iterator<String> iterator = allTabs.iterator();
-        while(iterator.hasNext()) {
+        while (iterator.hasNext()) {
             String child = iterator.next();
-            if(!current.equals(child)) {
+            if (!current.equals(child)) {
                 driver.switchTo().window(child);
             }
         }
@@ -70,7 +73,6 @@ public class TestAssignment extends TestBase {
         loginPage.clickLoginBtn();
         driver.close();
         driver.switchTo().window(current);
-        sleep(10);
     }
 }
 

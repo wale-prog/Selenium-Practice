@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="Test Assignment" verbose="2">
+    <parameter name="Student1" value="Siji"/>
+    <parameter name="Student2" value="Ahmed"/>
+    <test name="Run Test" parallel="false">
+        <classes>
+            <class name="Tests.TestAssignment"/>
+        </classes>
+    </test >
+</suite>
